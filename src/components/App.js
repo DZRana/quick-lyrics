@@ -97,7 +97,7 @@ const App = () => {
     </div>
   ) : (
     <div className="text-white flex">
-      <aside className="h-screen sticky top-0 pl-24 pt-24 md:pr-24">
+      <aside className="h-screen sticky top-0 pl-24 pt-8 md:pr-24">
         <Player spotifyInstance={spotifyInstance} currentTrack={currentTrack} />
       </aside>
       <main className="m-auto">

@@ -80,6 +80,14 @@ const Player = ({ spotifyInstance, currentTrack }) => {
         >
           Next
         </button>
+      </div>
+      <div className="text-sm mt-2">
+        <p className="font-bold">How to Use:</p>
+        <p>
+          Use the above controls or select a song directly from the Spotify app
+          to get the corresponding lyrics (if available on Genius).*
+        </p>
+        <br />
         <p>
           *Please wait a minimum of 10 seconds for song/lyrics to reflect new
           song. (Polling rate: once per 10s)

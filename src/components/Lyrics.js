@@ -17,11 +17,7 @@ const Lyrics = ({ currentTrack }) => {
     });
   }, [currentTrack]);
 
-  return (
-    <div>
-      <pre>{currentLyrics}</pre>
-    </div>
-  );
+  return <pre>{currentLyrics}</pre>;
 };
 
 export default Lyrics;

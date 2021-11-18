@@ -39,7 +39,7 @@ const App = () => {
       spotifyApi.getMyCurrentPlayingTrack((err, data) => {
         if (err) console.error(err);
         else {
-          if (data) {
+          if (data && data.item.id !== null) {
             setSpotifyStatus(true);
             if (prevSongId === "") {
               setCurrentTrack(data);
@@ -62,9 +62,9 @@ const App = () => {
 
   const renderSignIn = () => {
     return (
-      <div>
+      <div className="flex h-screen">
         <a
-          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded m-auto"
           href={signInUrl}
         >
           Sign In
@@ -80,18 +80,29 @@ const App = () => {
   return code === null ? (
     renderSignIn()
   ) : !spotifyStatus ? (
-    <div className="text-white">
-      Open Spotify App, Play a Song, then{" "}
-      <a className="hover:underline" href={redirect_uri}>
-        Log Back In
-      </a>
+    <div className="text-white flex h-screen">
+      <div className="m-auto">
+        Open Spotify App, Play a Song, then{" "}
+        <a
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          href={redirect_uri}
+        >
+          Log Back In
+        </a>
+      </div>
     </div>
   ) : !currentTrack ? (
-    <div>LOADING</div>
+    <div className="flex h-screen">
+      <div className="m-auto">LOADING</div>
+    </div>
   ) : (
-    <div className="text-white grid grid-cols-2">
-      <Player spotifyInstance={spotifyInstance} currentTrack={currentTrack} />
-      <Lyrics currentTrack={currentTrack} />
+    <div className="text-white flex">
+      <aside className="h-screen sticky top-0 pl-24 pt-24 md:pr-24">
+        <Player spotifyInstance={spotifyInstance} currentTrack={currentTrack} />
+      </aside>
+      <main className="m-auto">
+        <Lyrics currentTrack={currentTrack} />
+      </main>
     </div>
   );
 };

@@ -81,8 +81,8 @@ const Player = ({ spotifyInstance, currentTrack }) => {
           Next
         </button>
         <p>
-          *Please wait minimum of 10 seconds for lyrics to appear. (Polling
-          rate: once per 10s)
+          *Please wait a minimum of 10 seconds for song/lyrics to reflect new
+          song. (Polling rate: once per 10s)
         </p>
       </div>
     </div>

@@ -100,7 +100,7 @@ const App = () => {
   return code === null ? (
     renderSignIn()
   ) : !spotifyStatus ? (
-    <div className="text-white flex h-screen">
+    <div className="text-white flex h-screen whitespace-nowrap">
       <div className="m-auto">
         Open Spotify App, Play a Song, then{" "}
         <a
@@ -122,8 +122,8 @@ const App = () => {
         backgroundImage: `url(${gifUrl})`,
       }}
     >
-      <div className="flex relative bg-gray-800 bg-opacity-60">
-        <aside className="h-screen sticky top-0 pl-24 pt-8 md:pr-24 sm:pr-12">
+      <div className="md:flex md:relative bg-gray-800 bg-opacity-60">
+        <aside className="md:h-screen md:sticky md:top-0 md:pl-24 md:pt-8 md:pr-24">
           <Player
             spotifyInstance={spotifyInstance}
             currentTrack={currentTrack}

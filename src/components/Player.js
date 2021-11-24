@@ -41,8 +41,8 @@ const Player = ({ spotifyInstance, currentTrack }) => {
 
   return (
     <div>
-      <img className="rounded" alt={albumName} src={images[0].url} />
-      <div>
+      <img className="m-auto rounded" alt={albumName} src={images[0].url} />
+      <div className="text-center">
         {trackName}
         <br />
         {artists.map((artist, i) => {
@@ -50,7 +50,7 @@ const Player = ({ spotifyInstance, currentTrack }) => {
           else return `${artist.name}`;
         })}
         <br />
-        <div className="flex flex-auto">
+        <div className="flex justify-center">
           <button
             className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-gray-700 rounded"
             onClick={() => previous()}
@@ -132,7 +132,7 @@ const Player = ({ spotifyInstance, currentTrack }) => {
           </button>
         </div>
       </div>
-      <div className="text-sm mt-2">
+      <div className="text-xs mb-4 mt-2 md:text-sm">
         <p className="font-bold">How to Use:</p>
         <p>
           Use the above controls or select a song directly from the Spotify app

@@ -18,7 +18,7 @@ const App = () => {
     return Math.random().toString(20).substr(2, 16);
   };
   const state = generateRandomString();
-  const signInUrl = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&scope=${scope}&redirect_uri=${redirect_uri_local}&state=${state}&response_type=${response_type}`;
+  const signInUrl = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&scope=${scope}&redirect_uri=${redirect_uri}&state=${state}&response_type=${response_type}`;
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -33,7 +33,7 @@ const App = () => {
   const spotifySetup = async () => {
     const token = await spotifyAuth.post(
       "/api/token",
-      `grant_type=authorization_code&code=${code}&redirect_uri=${redirect_uri_local}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`
+      `grant_type=authorization_code&code=${code}&redirect_uri=${redirect_uri}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`
     );
 
     spotifyApi.setAccessToken(token.data.access_token);
@@ -100,12 +100,12 @@ const App = () => {
   return code === null ? (
     renderSignIn()
   ) : !spotifyStatus ? (
-    <div className="text-white flex h-screen">
+    <div className="text-white flex h-screen whitespace-nowrap">
       <div className="m-auto">
         Open Spotify App, Play a Song, then{" "}
         <a
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-          href={redirect_uri_local}
+          href={redirect_uri}
         >
           Log Back In
         </a>
@@ -122,8 +122,8 @@ const App = () => {
         backgroundImage: `url(${gifUrl})`,
       }}
     >
-      <div className="flex relative bg-gray-800 bg-opacity-60">
-        <aside className="h-screen sticky top-0 pl-24 pt-8 md:pr-24 sm:pr-12">
+      <div className="md:flex md:relative bg-gray-800 bg-opacity-60">
+        <aside className="md:h-screen md:sticky md:top-0 md:pl-24 md:pt-8 md:pr-24">
           <Player
             spotifyInstance={spotifyInstance}
             currentTrack={currentTrack}

@@ -20,7 +20,7 @@ const Lyrics = ({ currentTrack }) => {
   return currentLyrics === null ? (
     <p>NO LYRICS AVAILABLE</p>
   ) : (
-    <pre>{currentLyrics}</pre>
+    <pre className="whitespace-pre-wrap">{currentLyrics}</pre>
   );
 };
 

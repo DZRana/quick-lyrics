@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import spotify from "spotify-web-api-js";
+import giphy from "../apis/giphy";
 import spotifyAuth from "../apis/spotifyAuth";
 import Lyrics from "./Lyrics";
 import Player from "./Player";
@@ -25,6 +26,8 @@ const App = () => {
   const [spotifyInstance, setSpotifyInstance] = useState(null);
   const [currentTrack, setCurrentTrack] = useState(null);
   const [spotifyStatus, setSpotifyStatus] = useState(false);
+
+  const [gifUrl, setGifUrl] = useState(null);
 
   const spotifySetup = async () => {
     const token = await spotifyAuth.post(
@@ -77,6 +80,22 @@ const App = () => {
     if (code !== null) spotifySetup();
   }, []);
 
+  const getGifUrl = async () => {
+    const gif = await giphy.get("/search", {
+      params: {
+        q: "anime aesthetic",
+      },
+    });
+
+    setGifUrl(
+      gif.data.data[Math.floor(Math.random() * 50)].images.original.url
+    );
+  };
+
+  useEffect(() => {
+    getGifUrl();
+  }, [currentTrack]);
+
   return code === null ? (
     renderSignIn()
   ) : !spotifyStatus ? (
@@ -96,13 +115,23 @@ const App = () => {
       <div className="m-auto">LOADING</div>
     </div>
   ) : (
-    <div className="text-white flex">
-      <aside className="h-screen sticky top-0 pl-24 pt-8 md:pr-24">
-        <Player spotifyInstance={spotifyInstance} currentTrack={currentTrack} />
-      </aside>
-      <main className="m-auto">
-        <Lyrics currentTrack={currentTrack} />
-      </main>
+    <div
+      className="text-white bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${gifUrl})`,
+      }}
+    >
+      <div className="flex relative bg-gray-800 bg-opacity-60">
+        <aside className="h-screen sticky top-0 pl-24 pt-8 md:pr-24 sm:pr-12">
+          <Player
+            spotifyInstance={spotifyInstance}
+            currentTrack={currentTrack}
+          />
+        </aside>
+        <main className="m-auto">
+          <Lyrics currentTrack={currentTrack} />
+        </main>
+      </div>
     </div>
   );
 };

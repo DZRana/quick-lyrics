@@ -17,7 +17,11 @@ const Lyrics = ({ currentTrack }) => {
     });
   }, [currentTrack]);
 
-  return <pre>{currentLyrics}</pre>;
+  return currentLyrics === null ? (
+    <p>NO LYRICS AVAILABLE</p>
+  ) : (
+    <pre>{currentLyrics}</pre>
+  );
 };
 
 export default Lyrics;

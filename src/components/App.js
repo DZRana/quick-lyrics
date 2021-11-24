@@ -10,6 +10,7 @@ const App = () => {
   const CLIENT_ID = process.env.REACT_APP_SPOTIFY_API_CLIENT_ID;
   const CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_API_CLIENT_SECRET;
   const redirect_uri = "https://dzrana.github.io/quick-lyrics/";
+  const redirect_uri_local = "http://localhost:3000/";
   const response_type = "code";
   const scope =
     "user-read-playback-state user-modify-playback-state user-read-currently-playing app-remote-control streaming";

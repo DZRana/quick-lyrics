@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/quick-lyrics/static/css/main.fc858537.chunk.css",
-    "main.js": "/quick-lyrics/static/js/main.6aab4643.chunk.js",
-    "main.js.map": "/quick-lyrics/static/js/main.6aab4643.chunk.js.map",
+    "main.css": "/quick-lyrics/static/css/main.20f136c8.chunk.css",
+    "main.js": "/quick-lyrics/static/js/main.5dcb299b.chunk.js",
+    "main.js.map": "/quick-lyrics/static/js/main.5dcb299b.chunk.js.map",
     "runtime-main.js": "/quick-lyrics/static/js/runtime-main.6166055d.js",
     "runtime-main.js.map": "/quick-lyrics/static/js/runtime-main.6166055d.js.map",
     "static/js/2.8b876720.chunk.js": "/quick-lyrics/static/js/2.8b876720.chunk.js",
     "static/js/2.8b876720.chunk.js.map": "/quick-lyrics/static/js/2.8b876720.chunk.js.map",
     "index.html": "/quick-lyrics/index.html",
-    "static/css/main.fc858537.chunk.css.map": "/quick-lyrics/static/css/main.fc858537.chunk.css.map",
+    "static/css/main.20f136c8.chunk.css.map": "/quick-lyrics/static/css/main.20f136c8.chunk.css.map",
     "static/js/2.8b876720.chunk.js.LICENSE.txt": "/quick-lyrics/static/js/2.8b876720.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6166055d.js",
     "static/js/2.8b876720.chunk.js",
-    "static/css/main.fc858537.chunk.css",
-    "static/js/main.6aab4643.chunk.js"
+    "static/css/main.20f136c8.chunk.css",
+    "static/js/main.5dcb299b.chunk.js"
   ]
 }

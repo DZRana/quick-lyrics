@@ -18,7 +18,7 @@ const App = () => {
     return Math.random().toString(20).substr(2, 16);
   };
   const state = generateRandomString();
-  const signInUrl = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&scope=${scope}&redirect_uri=${redirect_uri}&state=${state}&response_type=${response_type}`;
+  const signInUrl = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&scope=${scope}&redirect_uri=${redirect_uri_local}&state=${state}&response_type=${response_type}`;
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -33,7 +33,7 @@ const App = () => {
   const spotifySetup = async () => {
     const token = await spotifyAuth.post(
       "/api/token",
-      `grant_type=authorization_code&code=${code}&redirect_uri=${redirect_uri}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`
+      `grant_type=authorization_code&code=${code}&redirect_uri=${redirect_uri_local}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`
     );
 
     spotifyApi.setAccessToken(token.data.access_token);
@@ -105,7 +105,7 @@ const App = () => {
         Open Spotify App, Play a Song, then{" "}
         <a
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-          href={redirect_uri}
+          href={redirect_uri_local}
         >
           Log Back In
         </a>
